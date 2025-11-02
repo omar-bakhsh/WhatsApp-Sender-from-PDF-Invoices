@@ -28,3 +28,134 @@
 
 ```bash
 pip install pdf2image pytesseract pillow pandas openpyxl pymupdf
+
+
+3️⃣ تثبيت برنامج Tesseract OCR
+
+
+من موقع جامعة Mannheim:
+🔗 https://github.com/UB-Mannheim/tesseract/wiki
+
+
+بعد التثبيت تأكد أن المسار هو:
+C:\Program Files\Tesseract-OCR\tesseract.exe
+
+
+
+4️⃣ تثبيت Poppler for Windows
+
+
+من المصدر الرسمي:
+🔗 https://github.com/oschwartz10612/poppler-windows/releases
+
+
+بعد فك الضغط، أضف المسار التالي إلى PATH في النظام:
+C:\Users\<YourUser>\Downloads\Release-25.07.0-0\poppler-25.07.0\Library\bin
+
+
+
+للتأكد من نجاح الإعداد:
+pdfinfo -v
+
+يجب أن يظهر رقم الإصدار مثل:
+pdfinfo version 25.07.0
+
+
+
+
+📁 إعداد المجلدات
+
+
+ضع جميع فواتيرك داخل مجلد (مثلاً):
+C:\DF_Files
+
+
+
+في الكود، تأكد من تعديل هذه الأسطر حسب جهازك:
+PDF_FOLDER = r"C:\DF_Files"
+OUTPUT_XLSX = r"C:\Users\hp\OneDrive\سطح المكتب\pdf-whats\whatsapp_links.xlsx"
+POPPLER_BIN = r"C:\Users\hp\Downloads\Release-25.07.0-0\poppler-25.07.0\bin"
+
+
+
+
+▶️ طريقة التشغيل
+
+
+افتح PowerShell أو CMD.
+
+
+انتقل إلى مجلد المشروع:
+cd "C:\Users\hp\OneDrive\سطح المكتب\pdf-whats"
+
+
+
+شغّل السكربت:
+python whatsapp-sender-from-pdf.py
+
+
+
+
+📈 الناتج
+
+
+ملف Excel باسم:
+whatsapp_links.xlsx
+
+يحتوي على:
+اسم العميلرقم الجوالرابط واتسابملف الفاتورةصفحة
+
+
+يتم فتح الملف تلقائيًا بعد انتهاء التشغيل.
+
+
+
+💬 ملاحظات
+
+
+إذا واجهت رسالة مثل Unable to get page count، تأكد من:
+
+
+تثبيت Poppler.
+
+
+أن المسار في POPPLER_BIN صحيح.
+
+
+
+
+يمكن تعديل النص المرسل للعميل من داخل دالة:
+build_whatsapp_link()
+
+لتخصيص رسالة الشكر أو رابط التقييم.
+
+
+
+📚 المصادر
+
+
+Tesseract OCR
+
+
+Poppler PDF tools
+
+
+PyMuPDF (fitz)
+
+
+pdf2image
+
+
+pytesseract
+
+
+
+👨‍💻 المطور
+عمر باخشر
+Python & JavaScript Developer | Auto Repair Systems Automation
+📍 Mazda Service Center
+
+---
+
+هل ترغب أن أضيف في هذا الـREADME لقطة شاشة (screenshot) توضح شكل ملف Excel الناتج؟  
+يكون شكل احترافي أكثر في GitHub.
